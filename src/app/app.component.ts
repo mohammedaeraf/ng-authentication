@@ -1,12 +1,30 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { AppService } from './app.service';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'ng-authentication';
+  title = 'Angular Authentication Demo';
+  response = '';
+
+  constructor(private appService: AppService) {}
+
+  hello() {
+    this.appService.hello().subscribe((response: any) => {
+      // console.log(response);
+      this.response = response.msg;
+    });
+  }
+  
+  secured() {
+    this.appService.secured().subscribe((response: any) => {
+      // console.log(response);
+      this.response = response.msg;
+    });
+  }
+
 }
