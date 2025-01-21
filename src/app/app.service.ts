@@ -18,9 +18,7 @@ export class AppService {
   secured() {
     // Encode the username and password in base64
     const authHeader = 'Basic ' + btoa(`${this.username}:${this.password}`);
-    
     console.log(authHeader);
-
     // Set the headers, including the Authorization header
     const httpHeaders = new HttpHeaders({
       'Content-Type': 'application/json',
@@ -32,7 +30,7 @@ export class AppService {
     return this.httpClient.get(this.apiUrlSecured, { headers: httpHeaders });
   }
 
-  hello() {
+  greetings() {
     return this.httpClient.get(this.apiUrlHello);
   }
 

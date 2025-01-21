@@ -13,16 +13,16 @@ export class AppComponent {
 
   constructor(private appService: AppService) {}
 
-  hello() {
-    this.appService.hello().subscribe((response: any) => {
-      // console.log(response);
+  greetings() {
+    this.appService.greetings().subscribe((response: any) => {
+      console.log(response);
       this.response = response.msg;
     });
   }
   
   secured() {
     this.appService.secured().subscribe((response: any) => {
-      // console.log(response);
+      console.log(response);
       this.response = response.msg;
     });
   }
